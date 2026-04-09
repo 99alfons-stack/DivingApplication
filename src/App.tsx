@@ -5,12 +5,12 @@ type ViewKey = 'businessPlan' | 'projectIdea' | 'background'
 
 const viewContent: Record<ViewKey, { title: string; body: string }> = {
   businessPlan: {
-    title: 'Affarsplan',
+    title: 'Affärsplan',
     body:
       'Jag utvecklar en mobilapp som samlar allt en dykare behöver i en enda plattform. Istället för att använda flera olika verktyg kan användare logga sina dyk, upptäcka nya dykplatser och dela sina upplevelser direkt i appen. Mitt mål är att göra dykning enklare, mer organiserad och mer inspirerande – samtidigt som jag skapar en modern och skalbar lösning för en global målgrupp.',
   },
   projectIdea: {
-    title: 'Projektide',
+    title: 'Projektidé',
     body:
       'Min idé är att skapa en mobilapp som samlar allt en dykare behöver i en och samma plattform – från loggbok till dykplatser och community. Idén bygger på ett tydligt problem: idag är information om dykning utspridd, och många använder fortfarande gamla eller ineffektiva lösningar som fysiska loggböcker eller flera olika appar. Dessutom finns det brister i hur dyk verifieras och dokumenteras, vilket kan påverka både säkerhet och vidareutbildning. Jag vill lösa detta genom att skapa en modern, användarvänlig och pålitlig app som gör det enkelt att dokumentera, organisera och dela dyk. Målet är inte bara att förenkla dykning – utan att göra den mer tillgänglig, strukturerad och inspirerande för alla som delar samma intresse.',
   },
