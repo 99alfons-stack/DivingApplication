@@ -1,0 +1,101 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #dff3ff 0%, #f8fdff 50%, #e8fff5 100%);
+  color: #123;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.card {
+  width: min(760px, 100%);
+  background: #ffffff;
+  border: 1px solid #d9e9ef;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgb(22 66 84 / 10%);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+}
+
+.intro {
+  margin-top: 0.5rem;
+  color: #385261;
+}
+
+.tabs {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.tab {
+  border: 1px solid #bbd6e4;
+  background: #f4fbff;
+  color: #154257;
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab:hover {
+  background: #e7f7ff;
+}
+
+.tab.active {
+  background: #1377a3;
+  border-color: #1377a3;
+  color: #fff;
+}
+
+.view-panel {
+  margin-top: 1.2rem;
+  border-top: 1px solid #e2edf2;
+  padding-top: 1rem;
+}
+
+.view-panel h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0e374a;
+}
+
+.view-panel p {
+  margin-top: 0.65rem;
+  color: #29495a;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1.1rem;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: left;
+  }
+}
