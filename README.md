@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# DykApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Detta projekt är en webbapplikation byggd med React, TypeScript och Vite.
 
-Currently, two official plugins are available:
+README beskriver exakt hur du installerar beroenden, bygger projektet och öppnar applikationen i webbläsaren.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Förutsattningar
 
-## React Compiler
+Innan du startar, se till att du har:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Node.js installerat, rekommenderat version 20 eller senare.
+2. npm installerat (följer normalt med Node.js).
 
-## Expanding the ESLint configuration
+Kontrollera versioner:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. node -v
+2. npm -v
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installera projektet
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Kör i projektroten:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Detta installerar alla beroenden i package.json.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Starta i utvecklingsläge
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Starta utvecklingsservern:
+
+1. npm run dev
+
+När servern är igång, öppna adressen som skrivs ut i terminalen.
+Standard för Vite är vanligtvis:
+
+1. http://localhost:5173
+
+## Bygga för produktion
+
+Skapa en produktionsbuild:
+
+1. npm run build
+
+Detta gör två saker:
+
+1. TypeScript-kompilering med projektets tsconfig.
+2. Vite-build som skapar filer i dist-mappen.
+
+Efter lyckad build finns den färdiga webbappen i dist.
+
+## Förhandsgranska produktionsbuild lokalt
+
+Starta Vites preview-server:
+
+1. npm run preview
+
+Öppna adressen som visas i terminalen, vanligtvis:
+
+1. http://localhost:4173
+
+Detta är det rekommenderade sättet att testa den byggda versionen lokalt.
+
+## Alternativt sätt att servra dist
+
+Projektet innehåller även scriptet:
+
+1. npm run start
+
+Detta installerar serve globalt och servera dist-mappen.
+Om du inte vill installera globala paket, använd hellre npm run preview.
+
+## Vanliga problem
+
+1. Om npm install misslyckas:
+Kontrollera att du har en modern Node.js-version och försök igen.
+
+2. Om porten redan används:
+Stoppa processen som använder porten eller starta om kommandot så Vite valjer en annan port.
+
+3. Om builden misslyckas:
+Kör npm run build igen och lös eventuella TypeScript- eller importfel som skrivs ut i terminalen.
+
+## Länk till Hemsida
+
+https://stingray-app-wf96o.ondigitalocean.app/
