@@ -25,43 +25,19 @@ function App() {
   const [activeView, setActiveView] = useState<ViewKey>('businessPlan')
   const activeContent = viewContent[activeView]
 
+export default function App() {
   return (
-    <main className="app-shell">
-      <section className="card">
-        <h1>Dykapp</h1>
-        <p className="intro"></p>
-
-        <nav className="tabs" aria-label="Val av innehallsvy">
-          <button
-            type="button"
-            className={activeView === 'businessPlan' ? 'tab active' : 'tab'}
-            onClick={() => setActiveView('businessPlan')}
-          >
-            Affarsplan
-          </button>
-          <button
-            type="button"
-            className={activeView === 'projectIdea' ? 'tab active' : 'tab'}
-            onClick={() => setActiveView('projectIdea')}
-          >
-            Projektide
-          </button>
-          <button
-            type="button"
-            className={activeView === 'background' ? 'tab active' : 'tab'}
-            onClick={() => setActiveView('background')}
-          >
-            Min bakgrund
-          </button>
-        </nav>
-
-        <article className="view-panel" aria-live="polite">
-          <h2>{activeContent.title}</h2>
-          <p>{activeContent.body}</p>
-        </article>
-      </section>
-    </main>
-  )
+    <BrowserRouter>
+      <div className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/" element={<Hem />} />
+          <Route path="/karta" element={<Karta />} />
+          <Route path="/loggbok" element={<Loggbok />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/profil" element={<Profil />} />
+        </Routes>
+        <BottomNav />
+      </div>
+    </BrowserRouter>
+  );
 }
-
-export default App
