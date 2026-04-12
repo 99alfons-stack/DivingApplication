@@ -12,9 +12,11 @@ Nummer		Beskrivning
 ## 8		React-trädet som renderas som ska bestå av minst 5st komponenter som du skrivit själv och som finns med i källkoden. (alla komponenter      behöver inte renderas samtidigt)
 
 ## Beskrivning av Krav 8
+huvudträdet sätts upp i app.tsx där mina sidkomponenter hem, Karta, Loggbok, Forum och Profil syns i min navbar som alltid renderas
 
 ## 9		Dina React komponenter är skrivna med JSX syntaxen. 
 # Beskrivning av Krav 9
+Mina React-komponenter är skrivna i .tsx och använder JSX-syntax för att rendera både HTML-liknande element och egna komponenter, till exempel i App.tsx, Hem.tsx och BottomNav.tsx.
 
 ## 10	Minst två av dina komponenter ska hantera ett "event" i Javascript, exempelvis från användaren.
 # Beskrivning av Krav 10
