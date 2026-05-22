@@ -20,9 +20,9 @@ export function Hem() {
       <div className="bg-gradient-to-b from-blue-600 to-blue-500 px-6 pb-12 pt-8 text-white">
         <div className="mb-6 flex items-center gap-3">
           <Waves className="h-10 w-10" />
-          <h1 className="text-3xl">DykLogg</h1>
+          <h1 className="text-3xl">Life Beneath</h1>
         </div>
-        <p className="text-blue-50">Utforska varldens basta dykplatser</p>
+        <p className="text-blue-50">Utforska världens bästa dykplatser</p>
       </div>
 
       <div className="-mt-8 px-6">

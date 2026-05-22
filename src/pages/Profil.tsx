@@ -1,17 +1,47 @@
+import { useEffect, useState } from "react";
 import { Award, MapPin, Settings, Waves } from "lucide-react";
 import { ImageWithFallback } from "../Components/figma/ImageWithFallback";
 import { Button } from "../Components/ui/button";
 import { Card } from "../Components/ui/card";
+import { useAuth } from "../lib/auth";
+import { Navigate } from "react-router-dom";
+import { getMyProfile, type ProfileResponse } from "../api/profile";
 
 export function Profil() {
-  const user = {
-    name: "Erik Andersson",
-    username: "@erikdykare",
-    level: "Advanced Open Water",
-    totalDives: 45,
-    countries: 8,
-    since: "2023",
-  };
+  const { user, isAuthenticated } = useAuth();
+  const [profile, setProfile] = useState<ProfileResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    getMyProfile()
+      .then((result) => {
+        if (isMounted) {
+          setProfile(result);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (!isAuthenticated || !user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const displayName = profile?.name || user.name || user.email.split("@")[0];
+  const username = profile?.username || `@${user.email.split("@")[0]}`;
+  const level = profile?.level || "Ny dykare";
+  const totalDives = profile?.totalDives ?? 0;
+  const countries = profile?.countries ?? 0;
+  const since = profile?.since || new Date().getFullYear().toString();
 
   const achievements = [
     { icon: Award, title: "Forsta dyk" },
@@ -42,9 +72,9 @@ export function Profil() {
               className="h-full w-full object-cover"
             />
           </div>
-          <h1 className="mb-1 text-2xl">{user.name}</h1>
-          <p className="mb-2 text-blue-100">{user.username}</p>
-          <div className="rounded-full bg-blue-500/50 px-3 py-1 text-sm">{user.level}</div>
+          <h1 className="mb-1 text-2xl">{loading ? "Laddar profil..." : displayName}</h1>
+          <p className="mb-2 text-blue-100">{username}</p>
+          <div className="rounded-full bg-blue-500/50 px-3 py-1 text-sm">{level}</div>
         </div>
       </div>
 
@@ -52,15 +82,15 @@ export function Profil() {
         <Card className="bg-white p-4 shadow-lg">
           <div className="grid grid-cols-3 divide-x divide-gray-200">
             <div className="text-center">
-              <p className="mb-1 text-2xl text-blue-600">{user.totalDives}</p>
+              <p className="mb-1 text-2xl text-blue-600">{totalDives}</p>
               <p className="text-xs text-gray-600">Dyk</p>
             </div>
             <div className="text-center">
-              <p className="mb-1 text-2xl text-blue-600">{user.countries}</p>
+              <p className="mb-1 text-2xl text-blue-600">{countries}</p>
               <p className="text-xs text-gray-600">Lander</p>
             </div>
             <div className="text-center">
-              <p className="mb-1 text-2xl text-blue-600">{user.since}</p>
+              <p className="mb-1 text-2xl text-blue-600">{since}</p>
               <p className="text-xs text-gray-600">Medlem sedan</p>
             </div>
           </div>
