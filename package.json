@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "dotnet run --project ./api/DivingApplication.Api.csproj --urls http://localhost:5000",
+    "dev:full": "powershell -NoProfile -Command \"Start-Process cmd -ArgumentList '/c','cd /d %CD%\\api && dotnet run --urls http://localhost:5000'; npm run dev\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

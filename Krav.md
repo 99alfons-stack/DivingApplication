@@ -36,7 +36,7 @@ exempel i Karta (filtrering och visning av vald dykplats) och Forum/Loggbok (fil
 
 ## 13	Via en av komponenterna ska användaren kunna spara information i LocalStorage.
 # Beskrivning av Krav 13
-Kravet är ännu inte uppfyllt eftersom appen i nuläget inte sparar någon information i LocalStorage.
+Kravet är inte uppfyllt eftersom appen i nuläget inte sparar någon information i LocalStorage.
 
 ## 14		Informationen i LocalStorage används vid renderingen av React-trädet.
 
