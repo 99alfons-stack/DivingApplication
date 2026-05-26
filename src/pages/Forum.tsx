@@ -120,8 +120,8 @@ export function Forum() {
             </DialogTrigger>
             <DialogContent className="max-w-md">
               <DialogHeader>
-                <DialogTitle>Skapa nytt inlagg</DialogTitle>
-                <DialogDescription>Dela dina fragor eller erfarenheter med andra dykare</DialogDescription>
+                <DialogTitle>Skapa nytt inlägg</DialogTitle>
+                <DialogDescription>Dela dina frågor eller erfarenheter med andra dykare</DialogDescription>
               </DialogHeader>
               <form onSubmit={handleCreateThread} className="mt-4 space-y-4">
                 <Input
@@ -138,12 +138,12 @@ export function Forum() {
                   onChange={(e) => setNewThread({ ...newThread, category: e.target.value })}
                   required
                 >
-                  <option value="">Valj kategori</option>
-                  <option value="Resmal">Resmal</option>
+                  <option value="">Välj kategori</option>
+                  <option value="Resmal">Resmål</option>
                   <option value="Utrustning">Utrustning</option>
                   <option value="Teknik">Teknik</option>
                   <option value="Utbildning">Utbildning</option>
-                  <option value="Ovrigt">Ovrigt</option>
+                  <option value="Ovrigt">Övrigt</option>
                 </select>
 
                 <Textarea
@@ -225,7 +225,7 @@ export function Forum() {
         {filteredThreads.length === 0 && (
           <div className="py-12 text-center">
             <MessageSquare className="mx-auto mb-3 h-12 w-12 text-gray-300" />
-            <p className="text-gray-500">Inga tradar hittades</p>
+            <p className="text-gray-500">Inga trådar hittades</p>
           </div>
         )}
       </div>
